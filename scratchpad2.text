@@ -1,0 +1,33 @@
+USER MODEL
+------------
+email: varchar 255 (string)
+passsword: varchar 255 (string)
+
+sequelize model:create --name user --attributes email:string,password:string
+sequelize model:create --name user --attributes email:string,password:string
+
+
+COINS MODEL
+---------------
+name
+price
+market cap
+protocol
+exchanges
+
+sequelize model:create --name coin --attributes name:string,price:integer,market_cap:integer,protocol:string
+
+PROTOCOL 
+---------------
+name
+coins 
+
+sequelize model:create --name protocol --attributes name:string,coins:string
+
+EXCHANGES
+---------------
+name
+ticker
+volume
+
+sequelize model:create --name exchange --attributes name:string,ticker:string,volume:integer
