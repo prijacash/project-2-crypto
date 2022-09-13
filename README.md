@@ -4,12 +4,24 @@ Crypto Currency Connection
 
 List of major Crypto Currencies and their protocols
 
-WireFrame - Pokemon Battle
-![wireframe](/media/ccc_wireframe.png
-
+WireFrame - 
+![wireframe](/media/ccc_wireframe.png)
 
 Tech Needed
 - HTML, CSS,
+
+# USER STORIES
+
+
+
+# WIREFRAMES 
+
+# ERD
+
+# API
+- coingecko API
+- No API key required
+- Example of Axios Request
 
 MVP
 - 2 models
