@@ -16,7 +16,7 @@ Tech Needed
 - As a user, I want view all the coins and their prices.
 
 # WIREFRAMES 
-![wireframe](/media/ccc_wireframe.png)
+![wireframe](/media/coins.png)
 
 # ERD
 ![ERD Layout](/media/ERDlayout.png)
@@ -41,7 +41,7 @@ Tech Needed
 
 
 # API
-[Coingecko API](https://www.coingecko.com/api/documentations/v3/swagger.json) 
+- [Coingecko API](https://www.coingecko.com/api/documentations/v3/swagger.json) 
 - No API key required
 - Example of Axios Request
 
