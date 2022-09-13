@@ -1,0 +1,7 @@
+USER MODEL
+------------
+email: varchar 255 (string)
+passsword: varchar 255 (string)
+
+sequelize model:create --name user --attributes email:string,password:string
+sequelize model:create --name user --attributes email:string,password:string
