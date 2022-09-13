@@ -5,6 +5,8 @@ const ejsLayouts = require('express-ejs-layouts')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
+const axios = require('axios')
+
 
 console.log('server secret:', process.env.ENC_SECRET)
 
@@ -36,9 +38,25 @@ app.use(async (req, res, next) => {
     next()
 })
 
+// API - coingecko
+app.get('/', async (req, res) => {
+    try {
+      let coingeckoUrl = 'https://www.coingecko.com/api/documentations/v3/swagger.json'
+      axios.get(coingeckoUrl).then(apiResponse => {
+        let coins = apiResponse.data;
+        // console.log(coins)
+        // res.render('home.ejs')
+        res.json(coins)
+      })
+    } catch(err) {
+      console.log(err)
+    }
+  })
 
 
-// route definitions
+
+
+// router definitions
 app.get('/', (req, res) => {
     // console.log('incoming cookie 🍪', req.cookies)
     // console.log(res.locals.myData)
