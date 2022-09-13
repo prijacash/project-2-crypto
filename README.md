@@ -19,7 +19,7 @@ Tech Needed
 ![wireframe](/media/ccc_wireframe.png)
 
 # ERD
-![ERD Layout](/media/ERD_layout.png)
+![ERD Layout](/media/ERDlayout.png)
 
 # RESTful Routes
 | HTTP METHOD | URL | CRUD | Description
