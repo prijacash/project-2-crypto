@@ -4,19 +4,24 @@ Crypto Currency Connection
 
 List of major Crypto Currencies and their protocols
 
-WireFrame - 
-![wireframe](/media/ccc_wireframe.png)
 
 Tech Needed
-- HTML, CSS,
+- HTML, CSS, 
 
 # USER STORIES
-
-
+## As a user, I want to add make market analysis on current conditions.
+## As a user, I want to update or delete previous analysis.
+## As a user, I want explore other people's market analyses.
+## As a user, I want to favorite other predictions.
+## As a user, I want view all the coins
 
 # WIREFRAMES 
+![wireframe](/media/ccc_wireframe.png)
 
 # ERD
+![wireframe](/media/ERD_layout.png)
+
+# RESTful Routes
 
 # API
 - coingecko API
