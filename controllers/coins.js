@@ -8,16 +8,26 @@ const axios = require('axios')
 router.get('/', async (req, res) => {
     try {
       response = await axios.get('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
-        headers: { 'X-CMC_PRO_API_KEY': 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c' }
+        headers: { 'X-CMC_PRO_API_KEY': process.env.CMC_PRO_API_KEY }
       })
 
       const json = response.data
       console.log(json)
       res.json(json)
-
     } catch(err) {
       console.log(err)
     }
+  })
+
+  module.exports = router
+
+
+
+
+
+
+
+  // ------- NOTES TO BE CLEARED
     // try {
     //     let coins;
     //     axios.get(cmcURL)
@@ -42,9 +52,6 @@ router.get('/', async (req, res) => {
     // } catch(err) {
     //   console.log(err)
     // }
-  })
-
-  module.exports = router
 
 
 
