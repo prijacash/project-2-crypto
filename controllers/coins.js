@@ -3,7 +3,80 @@ const router = express.Router()
 const db = require('../models')
 const axios = require('axios')
 
-// GET /coins
+
+// VARIABLES FROM COINGECKO URL - need to be specific
+const trendingUrl = `https://api.coingecko.com/api/v3/search/trending`
+const bitcoinUrl = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const ethereumUrl = `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const tetherUrl = `https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+
+// GET / - show all coins 
+router.get('/', async (req, res) => {
+    try {
+      const bitcoinResponse = await axios.get(bitcoinUrl)
+      const ethereumReponse = await axios.get(ethereumUrl)
+      const bitcoinData = bitcoinResponse.data
+      const ethereumData = ethereumReponse.data
+
+      res.render('coins/index.ejs', {
+        bitcoins: bitcoinData,
+        ethereums: ethereumData,
+        myDataName: 'testing string',
+      })
+    } catch(err) {
+      console.log(err)
+    }
+  })
+  
+  
+  
+  module.exports = router
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // ------- NOTES TO BE CLEARED
+  // console.log(bitcoinData)
+  // // GET /ethereum
+  // router.get('/ethereum', async (req, res) => {
+  //   try {
+  //     let coins
+  //     axios.get(ethereumUrl)
+  //     .then(apiResponse => {
+  //       coins = apiResponse.data;
+  //       res.json(coins)
+  //     }) 
+  //   } catch(err) {
+  //     console.log(err)
+  //   }
+  // })
+  // console.log(bitcoinData.bitcoin)
+  // console.log(bitcoinData.bitcoin.usd)
+  // console.log(bitcoinData.bitcoin.usd_market_cap)
+  // console.log(bitcoinData.bitcoin.usd_24h_vol)
+  // const bitcoin = await db.coin.create({
+  //   name: 'bitcoin',
+  //   price: bitcoinData.bitcoin.usd,
+  //   marketCap: bitcoinData.bitcoin.usd_market_cap,
+  //   voumeDay: bitcoinData.bitcoin.usd_24h_vol,
+  //   // let bitcoinData
+  //   // axios.get(bitcoinUrl)
+  //   // .then(apiResponse => {
+  //   //   bitcoinData = apiResponse.data;
+  //   // res.json(coins)
+  // })
+  // res.send(bitcoin) 
+  
+  // axios.get(`https://api.coingecko.com/api/v3/search?query=${req.params.id}`)
+
+  // GET /coins
 // router.get('/', async (req, res) => {
 //     try {
 //       response = await axios.get('https://www.coingecko.com/api/documentations/v3/swagger.json')
@@ -15,35 +88,6 @@ const axios = require('axios')
 //       console.log(err)
 //     }
 //   })
-
-const trendingUrl = `https://api.coingecko.com/api/v3/search/trending`
-
-// GET / - trending 
-router.get('/', async (req, res) => {
-    try {
-        let coins
-        axios.get(trendingUrl)
-        .then(apiResponse => {
-          coins = apiResponse.data;
-          res.json(coins)
-        }) 
-        // res.redirect('/')
-    } catch(err) {
-      console.log(err)
-    }
-  })
-
-
-  module.exports = router
-
-
-
-  // axios.get(`https://api.coingecko.com/api/v3/search?query=${req.params.id}`)
-
-
-
-  // ------- NOTES TO BE CLEARED
-
 
   // router.get('/', async (req, res) => {
   //   try {

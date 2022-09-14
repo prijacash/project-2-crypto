@@ -17,8 +17,8 @@ module.exports = {
       marketCap: {
         type: Sequelize.INTEGER
       },
-      exchange: {
-        type: Sequelize.STRING
+      volumeDay: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

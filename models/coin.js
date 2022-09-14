@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
     marketCap: DataTypes.INTEGER,
-    exchange: DataTypes.STRING
+    volumeDay: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'coin',
