@@ -3,31 +3,62 @@ const router = express.Router()
 const db = require('../models')
 const axios = require('axios')
 
-
 // GET /coins
+// router.get('/', async (req, res) => {
+//     try {
+//       response = await axios.get('https://www.coingecko.com/api/documentations/v3/swagger.json')
+
+//       const json = response.data
+//       console.log(json)
+//       res.json(json)
+//     } catch(err) {
+//       console.log(err)
+//     }
+//   })
+
+const trendingUrl = `https://api.coingecko.com/api/v3/search/trending`
+
+// GET / - trending 
 router.get('/', async (req, res) => {
     try {
-      response = await axios.get('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
-        headers: { 'X-CMC_PRO_API_KEY': process.env.CMC_PRO_API_KEY }
-      })
-
-      const json = response.data
-      console.log(json)
-      res.json(json)
+        let coins
+        axios.get(trendingUrl)
+        .then(apiResponse => {
+          coins = apiResponse.data;
+          res.json(coins)
+        }) 
+        // res.redirect('/')
     } catch(err) {
       console.log(err)
     }
   })
 
+
   module.exports = router
 
 
 
-
+  // axios.get(`https://api.coingecko.com/api/v3/search?query=${req.params.id}`)
 
 
 
   // ------- NOTES TO BE CLEARED
+
+
+  // router.get('/', async (req, res) => {
+  //   try {
+  //     response = await axios.get('https://pro-api.coinmarketcap.com', {
+  //       headers: { 'X-CMC_PRO_API_KEY': process.env.CMC_PRO_API_KEY }
+  //     })
+
+  //     const json = response.data
+  //     console.log(json)
+  //     res.json(json)
+  //   } catch(err) {
+  //     console.log(err)
+  //   }
+  // })
+
     // try {
     //     let coins;
     //     axios.get(cmcURL)
