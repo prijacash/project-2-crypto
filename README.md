@@ -38,7 +38,7 @@ Tech Needed
 | GET | / | READ | read all insights |
 | GET | /users/:userId/insights | READ | all an insights from user |
 | GET | /users/:userId/insights/new | READ | form to create new insight |
-| POST | /users/:userID/insights | CREATE | create new insights |
+| POST | /users/:userId/insights | CREATE | create new insights |
 | PUT | /users/:userId/insights | UPDATE | update insights |
 | DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
 | GET | /insights/:insightId | READ | read specific insights |
@@ -51,8 +51,9 @@ Tech Needed
 
 
 # API
-- [Coingecko API](https://www.coingecko.com/api/documentations/v3/swagger.json) 
+- [Coinmarket Cap](tbd) 
 - No API key required
+- 300 credits / day
 - Example of Axios Request
 
 ```
@@ -72,14 +73,18 @@ Tech Needed
 ```
 
 MVP
-- 2 models
-- 1 API
-- Restful Routes
-- ORM Database table
-- Readme
-- Clean HTML, CSS, Back-End Code
-- Deploy Online
-- 
+[ ] - stub out ERD
+[ ] - 2 models
+[ ] - 1 API - get connected
+[ ] - Restful Routes
+[ ] - stub out EJs
+[ ] - stub out CRUD - psuedo code
+[ ] - ORM Database table
+[ ] - Readme
+[ ] - Clean HTML, CSS, Back-End Code
+[ ] - Deploy Online
+
+
 
 Stretch Goals
 - Include Exchange Info
@@ -90,4 +95,6 @@ Stretch Goals
 - Add modules to make it nicer
 
 Roadblocks 
--
+- API setup
+- API Key
+
