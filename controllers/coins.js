@@ -5,18 +5,31 @@ const axios = require('axios')
 
 
 // GET /coins
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    try {
+      response = await axios.get('https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
+        headers: { 'X-CMC_PRO_API_KEY': 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c' }
+      })
+
+      const json = response.data
+      console.log(json)
+      res.json(json)
+
+    } catch(err) {
+      console.log(err)
+    }
     // try {
     //     let coins;
     //     axios.get(cmcURL)
     //     .then(response => {
     //     coins = response.data;
     //     }) 
-    axios.get(`https://pro-api.coinmarketcap.com`)
-    .then(response => {
-      res.render('coins.ejs', { movies: response.data })
-    })
-    .catch(console.log)
+
+    // axios.get(`https://pro-api.coinmarketcap.com`)
+    // .then(response => {
+    //   res.render('coins.ejs', { movies: response.data })
+    // })
+    // .catch(console.log)
 
         // const coin = await db.coin.create({
         //   name: coins.name,
