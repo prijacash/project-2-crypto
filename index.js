@@ -7,7 +7,6 @@ const db = require('./models')
 const crypto = require('crypto-js')
 const axios = require('axios')
 
-
 console.log('server secret:', process.env.ENC_SECRET)
 
 // config express app/middlewares
@@ -17,6 +16,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+
 // our custom auth middleware
 app.use(async (req, res, next) => {
     // console.log('hello from a middleware 👋')
@@ -38,24 +38,6 @@ app.use(async (req, res, next) => {
     next()
 })
 
-// API - coingecko
-app.get('/', async (req, res) => {
-    try {
-      let coingeckoUrl = 'https://www.coingecko.com/api/documentations/v3/swagger.json'
-      axios.get(coingeckoUrl).then(apiResponse => {
-        let coins = apiResponse.data;
-        // console.log(coins)
-        // res.render('home.ejs')
-        res.json(coins)
-      })
-    } catch(err) {
-      console.log(err)
-    }
-  })
-
-
-
-
 // router definitions
 app.get('/', (req, res) => {
     // console.log('incoming cookie 🍪', req.cookies)
@@ -66,6 +48,10 @@ app.get('/', (req, res) => {
 
 // Controllers
 app.use('/users', require('./controllers/users'))
+app.use('/coins', require('./controllers/coins'))
+// app.use('/insights', require('./controllers/insights'))
+
+
 
 // listen on a port
 app.listen(PORT, () => console.log(`you or your loved ones may be entitled to compensation on port: ${PORT}`))

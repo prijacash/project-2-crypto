@@ -22,20 +22,30 @@ Tech Needed
 ![ERD Layout](/media/ERDlayout.png)
 
 # RESTful Routes
-| HTTP METHOD | URL | CRUD | Description
+
+### USER
+| HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
 | GET | /users/:userId | READ | user details |
 | GET | /users/new | READ | form to create new user |
+| POST | /users/ | CREATE | create new user |
+| PUT | /users/:userId/ | UPDATE | update user data |
+| DELETE | /users/:userId/ | DESTROY | delete user |
+
+### INSIGHTS
+| HTTP METHOD | URL | CRUD | Description |
+| ------ | ----------- | ------ | ------ |
+| GET | / | READ | read all insights |
 | GET | /users/:userId/insights | READ | all an insights from user |
 | GET | /users/:userId/insights/new | READ | form to create new insight |
-| POST | /users/ | CREATE | create new user |
 | POST | /users/:userID/insights | CREATE | create new insights |
-| PUT | /users/:userId/ | UPDATE | update user data |
 | PUT | /users/:userId/insights | UPDATE | update insights |
-| DELETE | /users/:userId/ | DESTROY | delete user |
 | DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
-| GET | / | READ | read all insights |
 | GET | /insights/:insightId | READ | read specific insights |
+
+### COINS
+| HTTP METHOD | URL | CRUD | Description |
+| ------ | ----------- | ------ | ------ |
 | GET | /coins | READ | read all coins and prices |
 | GET | /coins/:coinsId | READ | read specific coin details |
 
@@ -69,13 +79,15 @@ MVP
 - Readme
 - Clean HTML, CSS, Back-End Code
 - Deploy Online
+- 
 
 Stretch Goals
 - Include Exchange Info
 - Add charts
 - Add a nice color layout
 - Add twitter widgets of info
-
+- Add comments
+- Add modules to make it nicer
 
 Roadblocks 
 -

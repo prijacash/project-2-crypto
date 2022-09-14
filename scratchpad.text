@@ -5,3 +5,26 @@ passsword: varchar 255 (string)
 
 sequelize model:create --name user --attributes email:string,password:string
 sequelize model:create --name user --attributes email:string,password:string
+
+
+INSIGHT MODEL
+---------------
+userId INT
+title STRING 
+insight STRING
+coin INT
+
+sequelize model:create --name insight --attributes userId:integer,title:string,insight:string,coin:integer
+
+
+COIN MODEL
+--------------
+name STRING
+price INTEGER
+marketCap INTEGER
+exchange STRING
+
+sequelize model:create --name coin --attributes name:string,price:integer,marketCap:integer,exchange:string
+
+coingecko^ pathway
+look-response
