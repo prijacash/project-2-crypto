@@ -2,30 +2,43 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 const axios = require('axios')
-const bitcoinURL = 'https://api.coingecko.com/api/v3/coins/bitcoin?localization=english'
+
 
 // GET /coins
-router.get('/', async (req, res) => {
-    try {
-        let coins;
-        axios.get(bitcoinURL).then(apiResponse => {
-        coins = apiResponse.data;
-        }) 
+router.get('/', (req, res) => {
+    // try {
+    //     let coins;
+    //     axios.get(cmcURL)
+    //     .then(response => {
+    //     coins = response.data;
+    //     }) 
+    axios.get(`https://pro-api.coinmarketcap.com`)
+    .then(response => {
+      res.render('coins.ejs', { movies: response.data })
+    })
+    .catch(console.log)
 
-        const coin = await db.coin.create({
-          name: coins.name,
-          price: coins.market_data.current_price.usd,
-          marketCap: coins.market_data.market_cap.usd,
-          exchange: coins.tickers[0].market.name,
-        })
+        // const coin = await db.coin.create({
+        //   name: coins.name,
+        //   price: coins.market_data.current_price.usd,
+        //   marketCap: coins.market_data.market_cap.usd,
+        //   exchange: coins.tickers[0].market.name,
+        // })
 
-        res.redirect('/')
-    } catch(err) {
-      console.log(err)
-    }
+    //     res.redirect('/')
+    // } catch(err) {
+    //   console.log(err)
+    // }
   })
 
   module.exports = router
+
+
+
+
+
+
+
 
   // res.send(coin)
   // console.log(coins)
@@ -44,3 +57,11 @@ router.get('/', async (req, res) => {
   // in async -- then get rid from route
   // start from file
   // res.json(coins)
+
+
+  // --- this code works
+  // axios.get(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5000&convert=USD`)
+  // .then(response => {
+  //   res.render('coins.ejs', { movies: response.data })
+  // })
+  // .catch(console.log)

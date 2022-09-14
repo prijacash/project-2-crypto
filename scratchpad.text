@@ -28,3 +28,20 @@ sequelize model:create --name coin --attributes name:string,price:integer,market
 
 coingecko^ pathway
 look-response
+
+pathway
+
+==========================
+https://api.coingecko.com/api/v3/coins/bitcoin?localization=english
+Bitcoin
+name - name
+price - market_data.current_price.usd
+marketCap - market_data.market_cap.usd
+exchange - tickers[0].market.name, tickers[1].market.name, tickers[2].market.name
+
+https://api.coingecko.com/api/v3/coins/ethereum?localization=english
+ethereum
+name - name
+price - market_data.current_price.usd
+marketCap - market_data.market_cap.usd
+exchange - tickers[0].market.name, tickers[1].market.name, tickers[2].market.name
