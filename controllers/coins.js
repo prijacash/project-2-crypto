@@ -9,19 +9,51 @@ const trendingUrl = `https://api.coingecko.com/api/v3/search/trending`
 const bitcoinUrl = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
 const ethereumUrl = `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
 const tetherUrl = `https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const bnbUrl = `https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const xrpUrl = `https://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const adaUrl = `https://api.coingecko.com/api/v3/simple/price?ids=cardano&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const solUrl = `https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const dogeUrl = `https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const dotUrl = `https://api.coingecko.com/api/v3/simple/price?ids=polkadot&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+const linkUrl = `https://api.coingecko.com/api/v3/simple/price?ids=chainlink&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
+
 
 // GET / - show all coins 
 router.get('/', async (req, res) => {
     try {
       const bitcoinResponse = await axios.get(bitcoinUrl)
       const ethereumReponse = await axios.get(ethereumUrl)
+      const tetherReponse = await axios.get(tetherUrl)
+      const bnbResponse = await axios.get(bnbUrl)
+      const xrpResponse = await axios.get(xrpUrl)
+      const adaResponse = await axios.get(adaUrl)
+      const solResponse = await axios.get(solUrl)
+      const dogeResponse = await axios.get(dogeUrl)
+      const dotResponse = await axios.get(dotUrl)
+      const linkResponse = await axios.get(linkUrl)
+
       const bitcoinData = bitcoinResponse.data
       const ethereumData = ethereumReponse.data
+      const tetherData = tetherReponse.data
+      const bnbData = bnbResponse.data
+      const xrpData = xrpResponse.data
+      const adaData = adaResponse.data
+      const solData = solResponse.data
+      const dogeData = dogeResponse.data
+      const dotData = dotResponse.data
+      const linkData = linkResponse.data
 
       res.render('coins/index.ejs', {
         bitcoins: bitcoinData,
         ethereums: ethereumData,
-        myDataName: 'testing string',
+        tethers: tetherData,
+        bnbs: bnbData,
+        xrps: xrpData,
+        adas: adaData,
+        sols: solData,
+        doges: dogeData,
+        dots: dotData,
+        links: linkData,
       })
     } catch(err) {
       console.log(err)
@@ -40,7 +72,7 @@ router.get('/', async (req, res) => {
   
   
   
-  
+  // -- split method for numbers
   
   // ------- NOTES TO BE CLEARED
   // console.log(bitcoinData)

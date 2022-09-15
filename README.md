@@ -51,50 +51,40 @@ Tech Needed
 
 
 # API
-- [Coinmarket Cap](tbd) 
+- [Coingecko API Documentation](https://www.coingecko.com/en/api) 
 - No API key required
-- 300 credits / day
+- 50 / min
 - Example of Axios Request
 
 ```
- app.get('/', async (req, res) => {
-    try {
-      let coingeckoUrl = 'https://www.coingecko.com/api/documentations/v3/swagger.json'
-      axios.get(coingeckoUrl).then(apiResponse => {
-        let coins = apiResponse.data;
-        // console.log(coins)
-        // res.render('home.ejs')
-        res.json(coins)
-      })
-    } catch(err) {
-      console.log(err)
-    }
-  })
+use docs for specific coin to grab coin info
 ```
 
 MVP
 [ ] - stub out ERD
 [ ] - 2 models
-[ ] - 1 API - get connected
+[X] - 1 API - get connected
+[X] - Coin Index Page
 [ ] - Restful Routes
 [ ] - stub out EJs
 [ ] - stub out CRUD - psuedo code
 [ ] - ORM Database table
-[ ] - Readme
+[X] - Readme
 [ ] - Clean HTML, CSS, Back-End Code
 [ ] - Deploy Online
+[ ] - App use controllers on Index
 
 
 
 Stretch Goals
-- Include Exchange Info
-- Add charts
-- Add a nice color layout
-- Add twitter widgets of info
-- Add comments
-- Add modules to make it nicer
+[ ] - Include Exchange Info
+[ ] - Add charts
+[ ] - Add a nice color layout
+[ ] - Add twitter widgets of info
+[ ] - Add comments
+[ ] - Add modules to make it nicer
 
 Roadblocks 
-- API setup
-- API Key
+[X] - API setup
+[X] - API Key
 

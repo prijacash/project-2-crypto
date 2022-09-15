@@ -10,6 +10,11 @@
     <nav>
         <ul>
             <!-- if the user is logged in... -->
+            
+                <li>
+                    <a href="/coins">Coins</a>
+                </li>
+
             <!-- all data in the res.locals is usuable in the layout -->
             <% if (user) { %>
                 <li>
@@ -20,6 +25,8 @@
                     <a href="/users/logout">Logout</a>
                 </li>
             <% } else { %>
+                
+
                 <li>
                     <a href="/users/new">Sign Up</a>
                 </li>
