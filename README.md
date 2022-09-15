@@ -62,33 +62,34 @@ Tech Needed
 use docs for specific coin to grab coin info
 ```
 
-MVP
-[ ] - stub out ERD
-[X] - 2 models
-[X] - 1 API - get connected
-[X] - Coin Index Page
-[X] - Restful Routes
-[ ] - stub out EJs
-[ ] - ORM Database table
-[X] - Readme
+**MVP**
+- [ ] stub out ERD
+- [X] 2 models
+- [X] - 1 API - get connected
+- [X] - Coin Index Page
+- [X] - Restful Routes
+- [ ] - stub out EJs
+- [ ] - ORM Database table
+- [X] - Readme
 
-[ ] - Deploy Online
-[ ] - App use controllers on Index
-[ ] - Insights, Users, Comments JS
-CRUD
-[ ] - stub out CRUD - psuedo code
-[X] - Update UserJs w/ user var
-[ ] - Clean HTML, CSS, Back-End Code
+- [ ] - Deploy Online
+- [ ] - App use controllers on Index
+- [ ] - Insights, Users, Comments JS
 
-Stretch Goals
-[ ] - Include Exchange Info
-[ ] - Add charts
-[ ] - Add a nice color layout
-[ ] - Add twitter widgets of info
-[ ] - Add comments
-[ ] - Add modules to make it nicer
+**CRUD**
+- [ ] - stub out CRUD - psuedo code
+- [X] - Update UserJs w/ user var
+- [ ] - Clean HTML, CSS, Back-End Code
 
-Roadblocks 
-[X] - API setup
-[X] - API Key
+**Stretch Goals**
+- [ ] - Include Exchange Info
+- [ ] - Add charts
+- [ ] - Add a nice color layout
+- [ ] - Add twitter widgets of info
+- [ ] - Add comments
+- [ ] - Add modules to make it nicer
+
+**Roadblocks**
+- [X] - API setup
+- [X] - API Key
 
