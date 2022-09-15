@@ -64,7 +64,7 @@ router.get('/', async (req, res) => {
 router.post('/', function(req, res) {
   db.coin.create({
     name: req.body.name,
-    description: req.body.details
+    description: req.body.description
   })
   .then(function(post) {
     res.redirect('/coins')

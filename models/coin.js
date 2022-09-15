@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   coin.init({
     name: DataTypes.STRING,
-    details: DataTypes.TEXT
+    description: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'coin',
