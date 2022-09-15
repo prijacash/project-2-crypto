@@ -35,12 +35,13 @@ Tech Needed
 ### INSIGHTS
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
-| GET | / | READ | read all insights |
+| GET | / | READ | read coin data and descriptions |
 | GET | /users/:userId/insights | READ | all an insights from user |
 | GET | /users/:userId/insights/new | READ | form to create new insight |
 | POST | /users/:userId/insights | CREATE | create new insights |
 | PUT | /users/:userId/insights | UPDATE | update insights |
 | DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
+
 | GET | /insights/:insightId | READ | read specific insights |
 
 ### COINS
@@ -84,7 +85,8 @@ use docs for specific coin to grab coin info
 - [ ] - Update - Insights
 - [ ] - Destroy - Insights
 - [ ] - stub out Insights
-- [ ] - stub out Coins
+- [X] - stub out Coins
+- [X] - Read - Coins - read all
 - [X] - Update UserJs w/ user var
 
 **FINAL**

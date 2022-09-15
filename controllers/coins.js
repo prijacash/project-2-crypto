@@ -18,7 +18,7 @@ const dotUrl = `https://api.coingecko.com/api/v3/simple/price?ids=polkadot&vs_cu
 const linkUrl = `https://api.coingecko.com/api/v3/simple/price?ids=chainlink&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
 
 
-// GET / - show all coins 
+// GET / - show all coins from API
 router.get('/', async (req, res) => {
     try {
       const bitcoinResponse = await axios.get(bitcoinUrl)
@@ -43,6 +43,9 @@ router.get('/', async (req, res) => {
       const dotData = dotResponse.data
       const linkData = linkResponse.data
 
+      const coin = await db.coin.findAll()
+      console.log(coin)
+
       res.render('coins/index.ejs', {
         bitcoins: bitcoinData,
         ethereums: ethereumData,
@@ -54,12 +57,29 @@ router.get('/', async (req, res) => {
         doges: dogeData,
         dots: dotData,
         links: linkData,
+        coin: coin,
       })
+
+      // const coin = await db.coin.findAll()
+      // console.log(coin)
+      res.render('coins/index.ejs', { coin: coin })
+
     } catch(err) {
       console.log(err)
     }
   })
   
+  // GET /coins/new - display form for creating new coins
+  router.get('/new', function(req, res) {
+    db.coin.findAll()
+    .then(function(users) {
+      res.render('coins/new', { user: users })
+    })
+    .catch(function(error) {
+      res.status(400).render('main/404')
+    })
+  })
+
 // POST /coins - create a new coins
 router.post('/', function(req, res) {
   db.coin.create({
@@ -74,20 +94,8 @@ router.post('/', function(req, res) {
   })
 })
 
-// GET /coins/new - display form for creating new coins
-router.get('/new', function(req, res) {
-  db.coin.findAll()
-  .then(function(users) {
-    res.render('coins/new', { user: users })
-  })
-  .catch(function(error) {
-    res.status(400).render('main/404')
-  })
-})
 
 // GET /coins/:coinsId - read specific coin
-
-// PUT - /coins/:coinsId - update - coins
 
 // DELETE - /coinsId - delete coins
 
