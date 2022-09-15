@@ -47,7 +47,7 @@ Tech Needed
 ### COINS
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
-| GET | / | READ | read prices |
+| GET | ~/~ | READ | read prices |
 | GET | /coins/:coinsId | READ | read specific coin detail |
 | POST | ~/coins/new~ | CREATE | create new coin details |
 | DELETE | /coins/:coinsId/ | DESTROY | delete coins |

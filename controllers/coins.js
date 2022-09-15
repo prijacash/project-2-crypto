@@ -44,7 +44,6 @@ router.get('/', async (req, res) => {
       const linkData = linkResponse.data
 
       const coin = await db.coin.findAll()
-      console.log(coin)
 
       res.render('coins/index.ejs', {
         bitcoins: bitcoinData,
@@ -59,10 +58,6 @@ router.get('/', async (req, res) => {
         links: linkData,
         coin: coin,
       })
-
-      // const coin = await db.coin.findAll()
-      // console.log(coin)
-      res.render('coins/index.ejs', { coin: coin })
 
     } catch(err) {
       console.log(err)
@@ -96,6 +91,13 @@ router.post('/', function(req, res) {
 
 
 // GET /coins/:coinsId - read specific coin
+router.get('/:coinsId', (req, res) => {
+    const coinData = db.coin.findAll()
+    console.log(coinData)
+    const coin = coinData[req.params.id]
+
+    res.render('coins/show.ejs', { myCoin: coin })
+})
 
 // DELETE - /coinsId - delete coins
 
