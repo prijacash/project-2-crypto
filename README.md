@@ -26,8 +26,8 @@ Tech Needed
 ### USER
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
-| GET | /users/:userId | READ | user details |
-| GET | /users/new | READ | form to create new user |
+| GET | ~/users/:userId~ | READ | user details |
+| GET | ~/users/new~ | READ | form to create new user |
 | POST | /users/ | CREATE | create new user |
 | PUT | /users/:userId/ | UPDATE | update user data |
 | DELETE | /users/:userId/ | DESTROY | delete user |
@@ -46,9 +46,9 @@ Tech Needed
 ### COINS
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
-| GET | /coins | READ | read prices |
+| GET | / | READ | read prices |
 | GET | /coins/:coinsId | READ | read specific coin detail |
-| POST | /coins/new | CREATE | create new coin details |
+| POST | ~/coins/new~ | CREATE | create new coin details |
 | PUT | /coins/:coinsId | UPDATE | create new coin details |
 | DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
 
@@ -64,20 +64,21 @@ use docs for specific coin to grab coin info
 
 MVP
 [ ] - stub out ERD
-[ ] - 2 models
+[X] - 2 models
 [X] - 1 API - get connected
 [X] - Coin Index Page
-[ ] - Restful Routes
+[X] - Restful Routes
 [ ] - stub out EJs
-[ ] - stub out CRUD - psuedo code
 [ ] - ORM Database table
 [X] - Readme
-[ ] - Clean HTML, CSS, Back-End Code
+
 [ ] - Deploy Online
 [ ] - App use controllers on Index
 [ ] - Insights, Users, Comments JS
+CRUD
+[ ] - stub out CRUD - psuedo code
 [X] - Update UserJs w/ user var
-
+[ ] - Clean HTML, CSS, Back-End Code
 
 Stretch Goals
 [ ] - Include Exchange Info
