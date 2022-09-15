@@ -19,7 +19,7 @@ Tech Needed
 ![wireframe](/media/coins.png)
 
 # ERD
-![ERD Layout](/media/ERDlayout.png)
+![ERD Layout](/media/ERD_layout.png)
 
 # RESTful Routes
 
