@@ -1,6 +1,6 @@
 # Project 2 Crypto
 
-Crypto Currency Connection
+Crypto Insights
 
 List of major Crypto Currencies and their protocols
 
@@ -49,8 +49,8 @@ Tech Needed
 | GET | / | READ | read prices |
 | GET | /coins/:coinsId | READ | read specific coin detail |
 | POST | ~/coins/new~ | CREATE | create new coin details |
-| PUT | /coins/:coinsId | UPDATE | create new coin details |
-| DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
+| PUT | /coins/:coinsId | UPDATE | update details |
+| DELETE | /coins/:coinsId/ | DESTROY | delete coins |
 
 # API
 - [Coingecko API Documentation](https://www.coingecko.com/en/api) 
