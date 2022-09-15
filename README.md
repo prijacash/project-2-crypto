@@ -76,8 +76,7 @@ MVP
 [ ] - Deploy Online
 [ ] - App use controllers on Index
 [ ] - Insights, Users, Comments JS
-[ ] - Insights, Users, Comments JS
-
+[X] - Update UserJs w/ user var
 
 
 Stretch Goals

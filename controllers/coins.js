@@ -60,6 +60,31 @@ router.get('/', async (req, res) => {
     }
   })
   
+// POST /coins - create a new post
+router.post('/', function(req, res) {
+  db.coin.create({
+    name: req.body.title,
+    description: req.body.content
+  })
+  .then(function(post) {
+    res.redirect('/')
+  })
+  .catch(function(error) {
+    res.status(400).render('main/404')
+  })
+})
+
+// GET /coins/new - display form for creating new coins
+router.get('/new', function(req, res) {
+  db.coin.findAll()
+  .then(function(users) {
+    res.render('coins/new', { user: users })
+  })
+  .catch(function(error) {
+    res.status(400).render('main/404')
+  })
+})
+
 
   module.exports = router
   

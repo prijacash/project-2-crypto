@@ -20,6 +20,7 @@ router.post('/', async (req, res) => {
                 email: req.body.email
             },
             defaults: {
+                name: req.body.name,
                 password: hashedPassword
             }
         })
