@@ -48,7 +48,7 @@ Tech Needed
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
 | GET | ~/~ | READ | read prices |
-| GET | /coins/:coinsId | READ | read specific coin detail |
+| GET | ~/coins/:coinsId~ | READ | read specific coin detail |
 | POST | ~/coins/new~ | CREATE | create new coin details |
 | DELETE | /coins/:coinsId/ | DESTROY | delete coins |
 
@@ -76,7 +76,7 @@ use docs for specific coin to grab coin info
 
 **CONTROLLERS**
 - [ ] - App use controllers on Index
-- [ ] - Insights, Users, Comments JS
+- [ ] - Insights, Users, Coins - JS
 
 **CRUD**
 - [ ] - 1 complete set CRUD (insights)
@@ -84,7 +84,7 @@ use docs for specific coin to grab coin info
 - [ ] - Read - Insights
 - [ ] - Update - Insights
 - [ ] - Destroy - Insights
-- [ ] - stub out Insights
+- [X] - stub out Insights
 - [X] - stub out Coins
 - [X] - Read - Coins - read all
 - [X] - Update UserJs w/ user var
