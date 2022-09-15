@@ -16,8 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   insight.init({
     userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    insight: DataTypes.STRING,
-    coin: DataTypes.INTEGER
+    content: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'insight',

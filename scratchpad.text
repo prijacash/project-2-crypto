@@ -15,7 +15,7 @@ content TEXT
 
 sequelize model:create --name insight --attributes userId:integer,title:string,content:text
 
-
+ 
 COIN MODEL
 --------------
 name STRING

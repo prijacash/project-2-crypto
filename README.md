@@ -46,9 +46,11 @@ Tech Needed
 ### COINS
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
-| GET | /coins | READ | read all coins and prices |
-| GET | /coins/:coinsId | READ | read specific coin details |
-
+| GET | /coins | READ | read prices |
+| GET | /coins/:coinsId | READ | read specific coin detail |
+| POST | /coins/new | CREATE | create new coin details |
+| PUT | /coins/:coinsId | UPDATE | create new coin details |
+| DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
 
 # API
 - [Coingecko API Documentation](https://www.coingecko.com/en/api) 
@@ -73,6 +75,8 @@ MVP
 [ ] - Clean HTML, CSS, Back-End Code
 [ ] - Deploy Online
 [ ] - App use controllers on Index
+[ ] - Insights, Users, Comments JS
+[ ] - Insights, Users, Comments JS
 
 
 

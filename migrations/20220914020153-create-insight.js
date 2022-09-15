@@ -14,11 +14,8 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      insight: {
-        type: Sequelize.STRING
-      },
-      coin: {
-        type: Sequelize.INTEGER
+      content: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
