@@ -93,9 +93,7 @@ router.get('/new', function(req, res) {
   
   
   
-  
-  
-  
+
   // -- split method for numbers
   
   // ------- NOTES TO BE CLEARED
@@ -183,13 +181,6 @@ router.get('/new', function(req, res) {
     // } catch(err) {
     //   console.log(err)
     // }
-
-
-
-
-
-
-
 
   // res.send(coin)
   // console.log(coins)
