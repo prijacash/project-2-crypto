@@ -60,7 +60,7 @@ router.get('/', async (req, res) => {
     }
   })
   
-// POST /coins - create a new post
+// POST /coins - create a new coins
 router.post('/', function(req, res) {
   db.coin.create({
     name: req.body.name,
@@ -84,6 +84,12 @@ router.get('/new', function(req, res) {
     res.status(400).render('main/404')
   })
 })
+
+// GET /coins/:coinsId - read specific coin
+
+// PUT - /coins/:coinsId - update - coins
+
+// DELETE - /coinsId - delete coins
 
 
   module.exports = router

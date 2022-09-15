@@ -49,7 +49,6 @@ Tech Needed
 | GET | / | READ | read prices |
 | GET | /coins/:coinsId | READ | read specific coin detail |
 | POST | ~/coins/new~ | CREATE | create new coin details |
-| PUT | /coins/:coinsId | UPDATE | update details |
 | DELETE | /coins/:coinsId/ | DESTROY | delete coins |
 
 # API
@@ -62,24 +61,35 @@ Tech Needed
 use docs for specific coin to grab coin info
 ```
 
-**MVP**
-- [ ] stub out ERD
-- [X] 2 models
+### MVP
+- [X] - 2 models - done
 - [X] - 1 API - get connected
 - [X] - Coin Index Page
 - [X] - Restful Routes
-- [ ] - stub out EJs
-- [ ] - ORM Database table
 - [X] - Readme
 
-- [ ] - Deploy Online
+**ORM**
+- [ ] - ORM Database table - relationship with tables
+- [ ] - users 1:M insights
+- [ ] - users M:M coins (join tables)
+
+**CONTROLLERS**
 - [ ] - App use controllers on Index
 - [ ] - Insights, Users, Comments JS
 
 **CRUD**
-- [ ] - stub out CRUD - psuedo code
+- [ ] - 1 complete set CRUD (insights)
+- [ ] - Create - Insights
+- [ ] - Read - Insights
+- [ ] - Update - Insights
+- [ ] - Destroy - Insights
+- [ ] - stub out Insights
+- [ ] - stub out Coins
 - [X] - Update UserJs w/ user var
+
+**FINAL**
 - [ ] - Clean HTML, CSS, Back-End Code
+- [ ] - Deploy Online
 
 **Stretch Goals**
 - [ ] - Include Exchange Info

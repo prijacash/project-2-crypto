@@ -4,7 +4,7 @@ const db = require('../models')
 const axios = require('axios')
 
 
-// POST /insights - create a new post
+// POST /insights - CREATE a new post
 router.post('/', function(req, res) {
     db.insight.create({
       title: req.body.title,
@@ -20,7 +20,7 @@ router.post('/', function(req, res) {
   })
 
 
-// GET /insights/new - display form for creating new articles
+// GET /insights/new - display form for creating new articles READ
 router.get('/new', function(req, res) {
     db.user.findAll()
     .then(function(users) {
@@ -32,7 +32,7 @@ router.get('/new', function(req, res) {
   })
 
 
-// GET /insights/:id - display a specific post and its user
+// GET /insights/:id - display a specific post and its user READ
 router.get('/:id', function(req, res) {
     db.insight.findOne({
       where: { id: req.params.id },
@@ -48,5 +48,9 @@ router.get('/:id', function(req, res) {
       res.status(400).render('main/404')
     })
   })
+
+  // PUT //insights/:insightId - UPDATE insight from user
+
+  // DESTORY /insights/:insightId - DESTROY insight from user
 
 module.exports = router
