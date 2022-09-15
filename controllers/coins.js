@@ -63,11 +63,11 @@ router.get('/', async (req, res) => {
 // POST /coins - create a new post
 router.post('/', function(req, res) {
   db.coin.create({
-    name: req.body.title,
-    description: req.body.content
+    name: req.body.name,
+    description: req.body.details
   })
   .then(function(post) {
-    res.redirect('/')
+    res.redirect('/coins')
   })
   .catch(function(error) {
     res.status(400).render('main/404')
