@@ -57,7 +57,7 @@ router.get('/:insightId', async (req, res) => {
   })
 
 
-// DELETE - /coinsId - delete coins
+// DELETE - /insightId - delete insight
 router.delete('/:insightId', (req, res) => {
   console.log('try to delete this')
   db.insight.destroy({

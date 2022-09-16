@@ -36,12 +36,10 @@ Tech Needed
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
 | GET | ~/~ | READ | read insights data and descriptions |
-| GET | /users/:userId/insights | READ | all an insights from user |
-| GET | /users/:userId/insights/new | READ | form to create new insight |
 | POST | ~/insights/new~ | CREATE | create new insights |
 | PUT | /users/:userId/insights | UPDATE | update insights |
-| DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
-| GET | /insights/:insightId | READ | read specific insights |
+| DELETE | ~/insights/:insightId~ | DESTROY | delete insights |
+| GET | ~/insights/:insightId~ | READ | read specific insights |
 
 ### COINS
 | HTTP METHOD | URL | CRUD | Description |
@@ -49,7 +47,7 @@ Tech Needed
 | GET | ~/~ | READ | read prices |
 | GET | ~/coins/:coinsId~ | READ | read specific coin detail |
 | POST | ~/coins/new~ | CREATE | create new coin details |
-| DELETE | /coins/:coinsId/ | DESTROY | delete coins |
+| DELETE | ~/coins/:coinsId/~ | DESTROY | delete coins |
 
 # API
 - [Coingecko API Documentation](https://www.coingecko.com/en/api) 
@@ -83,7 +81,7 @@ use docs for specific coin to grab coin info
 - [X] - Create - Insights
 - [X] - Read - Insights
 - [ ] - Update - Insights
-- [ ] - Destroy - Insights
+- [X] - Destroy - Insights
 - [X] - CRD - coins
 - [X] - stub out Insights
 - [X] - stub out Coins

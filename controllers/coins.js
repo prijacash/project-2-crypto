@@ -89,21 +89,21 @@ router.post('/', function(req, res) {
   })
 })
 
-// GET /coins/:coinsId - read specific coin
-router.get('/:coinId', async (req, res) => {
-    try {
-      const coinData = await db.coin.findAll()
-      const coin = coinData[req.params.coinId]
-      
-      res.render('coins/show.ejs', { myCoin: coin })
-    } catch(err) {
-      console.log(err)
-    }
+// GET coins/:coinsId - read specific coin
+router.get('/:id', async (req, res) => {
+  try {
+    const coinData = await db.coin.findAll()
+      console.log(coinData)
+    const coin = coinData[req.params.id]
+    res.render('coins/show.ejs', { myCoin: coin })
+  } catch(err) {
+    console.log(err)
+  }
 })
-
 
 // DELETE - /coinsId - delete coins
 router.delete('/:coinId', (req, res) => {
+  console.log('try to delete this')
   db.coin.destroy({
     where: { id: req.params.coinId }
   })
