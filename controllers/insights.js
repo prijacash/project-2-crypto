@@ -4,7 +4,7 @@ const db = require('../models')
 
 
 
-// GET / - get all insights
+// GET / - get all insights - done 
 router.get('/', async (req, res) => {
   try {
     const insightData = await db.insight.findAll()
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 })
 
 // POST /insights - CREATE a new post
-router.post('/', function(req, res) {
+router.post('/', (req, res) => {
     db.insight.create({
       title: req.body.title,
       content: req.body.content,

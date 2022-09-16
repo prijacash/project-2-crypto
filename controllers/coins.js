@@ -114,9 +114,6 @@ router.get('/:coinId', async (req, res) => {
 //   .catch(next)
 // })
 
-
-
-
 // DELETE - /coinsId - delete coins
 router.delete('/:coinId', (req, res) => {
   db.coin.destroy({
