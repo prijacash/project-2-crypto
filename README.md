@@ -41,7 +41,6 @@ Tech Needed
 | POST | /users/:userId/insights | CREATE | create new insights |
 | PUT | /users/:userId/insights | UPDATE | update insights |
 | DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
-
 | GET | /insights/:insightId | READ | read specific insights |
 
 ### COINS

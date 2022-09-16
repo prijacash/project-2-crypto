@@ -64,16 +64,16 @@ router.get('/', async (req, res) => {
     }
   })
   
-  // GET /coins/new - display form for creating new coins
-  router.get('/new', function(req, res) {
-    db.coin.findAll()
-    .then(function(users) {
-      res.render('coins/new', { user: users })
-    })
-    .catch(function(error) {
-      res.status(400).render('main/404')
-    })
+// GET /coins/new - display form for creating new coins
+router.get('/new', function(req, res) {
+  db.coin.findAll()
+  .then(function(users) {
+    res.render('coins/new', { user: users })
   })
+  .catch(function(error) {
+    res.status(400).render('main/404')
+  })
+})
 
 // POST /coins - create a new coins
 router.post('/', function(req, res) {
@@ -101,6 +101,21 @@ router.get('/:coinId', async (req, res) => {
       console.log(err)
     }
 })
+
+// GET our update form
+// router.put('/edit/:id', (req,res) => {
+//   coin.update(
+//     {title: req.body.title},
+//     {where: req.params.bookId}
+//   )
+//   .then(function(rowsUpdated) {
+//     res.json(rowsUpdated)
+//   })
+//   .catch(next)
+// })
+
+
+
 
 // DELETE - /coinsId - delete coins
 router.delete('/:coinId', (req, res) => {

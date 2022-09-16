@@ -1,4 +1,7 @@
-
-<form action="/coins/<%= myCoin.coinId %>/?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
+<form method="POST" action="/coins/<%= myCoin.id %>/?_method=PUT">
+    <label>Name</label>
+    <input type="text" name="name" value="<%= myCoin.name %>">
+    <label>Description</label>
+    <input type="text" name="type" value="<%= myCoin.description %>">
+    <input type="submit">
 </form>
