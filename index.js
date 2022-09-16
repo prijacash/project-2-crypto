@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
 const axios = require('axios')
+const methodOverride = require("method-override")
+
 
 console.log('server secret:', process.env.ENC_SECRET)
 
@@ -16,6 +18,8 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(methodOverride("_method"))
+
 
 // our custom auth middleware
 app.use(async (req, res, next) => {

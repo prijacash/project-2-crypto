@@ -104,16 +104,17 @@ router.get('/:coinId', async (req, res) => {
 
 // DELETE - /coinsId - delete coins
 router.delete('/:coinId', (req, res) => {
-  const coinData = db.coin.findAll()
-  coinData.splice(req.params.coinId, 1)
+  db.coin.destroy({
+    where: { id: req.params.coinId }
+  })
+    .then( () => {
+      res.redirect('/coins')
+    })
+  })
 
-  res.redirect('/coins/index.ejs')
-})
+
 
 
 
   module.exports = router
-  
-  
-  
   
