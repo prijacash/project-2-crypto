@@ -94,13 +94,30 @@ router.post('/', function(req, res) {
 router.get('/:coinId', async (req, res) => {
     try {
       const coinData = await db.coin.findAll()
-        console.log(coinData)
       const coin = coinData[req.params.coinId]
+      
       res.render('coins/show.ejs', { myCoin: coin })
     } catch(err) {
       console.log(err)
     }
 })
+
+
+// DELETE - /coinsId - delete coins
+router.delete('/:coinId', (req, res) => {
+  db.coin.destroy({
+    where: { id: req.params.coinId }
+  })
+  .then( () => {
+    res.redirect('/coins')
+  })
+})
+
+
+
+
+
+module.exports = router
 
 // GET our update form
 // router.put('/edit/:id', (req,res) => {
@@ -113,20 +130,3 @@ router.get('/:coinId', async (req, res) => {
 //   })
 //   .catch(next)
 // })
-
-// DELETE - /coinsId - delete coins
-router.delete('/:coinId', (req, res) => {
-  db.coin.destroy({
-    where: { id: req.params.coinId }
-  })
-    .then( () => {
-      res.redirect('/coins')
-    })
-  })
-
-
-
-
-
-  module.exports = router
-  

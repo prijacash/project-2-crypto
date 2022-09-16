@@ -1,0 +1,9 @@
+<h2>Show Specific Article:</h2>
+
+<h3><%= myInsight.title %></h3>
+<p><%= myInsight.userId %></p>
+<p><%= myInsight.content %></p>
+
+<form action="/insights/<%= myInsight.id %>/?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>

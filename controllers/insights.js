@@ -18,12 +18,12 @@ router.get('/', async (req, res) => {
   }
 })
 
-// POST /insights - CREATE a new post
+// POST /insights - CREATE a new post - done
 router.post('/', (req, res) => {
     db.insight.create({
       title: req.body.title,
       content: req.body.content,
-      userId: req.body.userId
+      userId: req.body.userId,
     })
     .then(function(post) {
       res.redirect('/')
@@ -34,16 +34,46 @@ router.post('/', (req, res) => {
   })
 
 
-// GET /insights/new - display form for creating new articles READ
-router.get('/new', function(req, res) {
-    db.user.findAll()
-    .then(function(users) {
-      res.render('insights/new', { users: users })
-    })
-    .catch(function(error) {
-      res.status(400).render('main/404')
-    })
+
+// GET /insights/:insight - read specific coin
+// router.get('/:insightId',  (req, res) => {
+//   db.user.findOne({
+//     where: { id: req.params.userId },
+//     include: [db.user, db.insight]
+//   })
+//   .then(function(insight) {
+//     if (!insight) throw Error()
+//     console.log(insight.user)
+//     res.render('insight/show', { insight: insight })
+//   })
+//   .catch(function(error) {
+//     console.log(error)
+//     res.status.apply(render('main/404'))
+//     })
+//   })
+
+
+// DELETE - /coinsId - delete coins
+router.delete('/:insightId', (req, res) => {
+  console.log('try to delete this')
+  // db.insight.destroy({
+  //   where: { id: req.params.id }
+  // })
+  //   .then( () => {
+  //     res.redirect('/insights')
+  //   })
   })
+
+// GET /insights/new - display form for creating new articles READ
+// router.get('/new', function(req, res) {
+//     db.user.findAll()
+//     .then(function(users) {
+//       res.render('insights/new', { users: users })
+//     })
+//     .catch(function(error) {
+//       res.status(400).render('main/404')
+//     })
+//   })
 
 
 
