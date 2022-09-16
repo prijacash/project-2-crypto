@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 // Controllers
 app.use('/users', require('./controllers/users'))
 app.use('/coins', require('./controllers/coins'))
-// app.use('/insights', require('./controllers/insights'))
+app.use('/insights', require('./controllers/insights'))
 
 
 

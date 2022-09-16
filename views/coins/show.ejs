@@ -2,3 +2,6 @@
 
 <h3><%= myCoin.name %></h3>
 <p><%= myCoin.description %></p>
+<form method="POST" action="/coins/<%= myCoin.coinId %>/?_method=DELETE">
+    <input type="submit" value="Delete">
+</form>

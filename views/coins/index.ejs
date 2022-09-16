@@ -48,12 +48,13 @@
 <ul>
     <!-- <li>Display Coins</li> -->
     <li>
-        <% coin.forEach((coin) => { %>
-            <p><%= coin.name %></p>
-            Description
-            <%= coin.description %>
-            
-            <p></p>
-       <% }) %>
+        <li>
+            <% coin.forEach((coin) => { %>
+                <p><%= coin.name %></p>
+                Description
+                <%= coin.description %>
+                
+                <p></p>
+           <% }) %>
     </li>
 </ul>

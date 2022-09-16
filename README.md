@@ -28,14 +28,14 @@ Tech Needed
 | ------ | ----------- | ------ | ------ |
 | GET | ~/users/:userId~ | READ | user details |
 | GET | ~/users/new~ | READ | form to create new user |
-| POST | /users/ | CREATE | create new user |
-| PUT | /users/:userId/ | UPDATE | update user data |
-| DELETE | /users/:userId/ | DESTROY | delete user |
+| GET | ~/users/profile~ | READ | read user profile |
+| POST | ~/users/new~ | CREATE | create new user |
+
 
 ### INSIGHTS
 | HTTP METHOD | URL | CRUD | Description |
 | ------ | ----------- | ------ | ------ |
-| GET | / | READ | read coin data and descriptions |
+| GET | ~/~ | READ | read insights data and descriptions |
 | GET | /users/:userId/insights | READ | all an insights from user |
 | GET | /users/:userId/insights/new | READ | form to create new insight |
 | POST | /users/:userId/insights | CREATE | create new insights |
@@ -78,12 +78,14 @@ use docs for specific coin to grab coin info
 - [ ] - App use controllers on Index
 - [ ] - Insights, Users, Coins - JS
 
+
 **CRUD**
 - [ ] - 1 complete set CRUD (insights)
 - [ ] - Create - Insights
-- [ ] - Read - Insights
+- [X] - Read - Insights
 - [ ] - Update - Insights
 - [ ] - Destroy - Insights
+- [X] - CRD - coins
 - [X] - stub out Insights
 - [X] - stub out Coins
 - [X] - Read - Coins - read all
