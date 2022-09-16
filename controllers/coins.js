@@ -64,7 +64,7 @@ router.get('/', async (req, res) => {
     }
   })
   
-// GET /coins/new - display form for creating new coins
+// GET /coins/new - display FORM for creating new coins - done
 router.get('/new', function(req, res) {
   db.coin.findAll()
   .then(function(users) {
@@ -75,7 +75,7 @@ router.get('/new', function(req, res) {
   })
 })
 
-// POST /coins - create a new coins
+// POST /coins - create a new coins - done
 router.post('/', function(req, res) {
   db.coin.create({
     name: req.body.name,
@@ -88,7 +88,6 @@ router.post('/', function(req, res) {
     res.status(400).render('main/404')
   })
 })
-
 
 // GET /coins/:coinsId - read specific coin
 router.get('/:coinId', async (req, res) => {

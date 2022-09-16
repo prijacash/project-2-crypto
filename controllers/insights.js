@@ -3,7 +3,6 @@ const router = express.Router()
 const db = require('../models')
 
 
-
 // GET / - get all insights - done 
 router.get('/', async (req, res) => {
   try {
@@ -18,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-// GET /insights/new - display form for creating new articles READ - done
+// GET /insights/new - display form for creating new insights READ - done
 router.get('/new', function(req, res) {
     db.user.findAll()
     .then(function(users) {
@@ -28,7 +27,6 @@ router.get('/new', function(req, res) {
       res.status(400).render('main/404')
     })
   })
-
 
 // POST /insights - CREATE a new post - done
 router.post('/', (req, res) => {
@@ -45,34 +43,29 @@ router.post('/', (req, res) => {
     })
   })
 
+// GET /insights/:insightId - read specific coin 
+router.get('/:insightId', async (req, res) => {
+  try {
+    const insightData = await db.insight.findAll()
+      console.log(insightData)
+    const insight = insightData[req.params.insightId]
 
-// GET /insights/:insight - read specific coin
-// router.get('/:insightId',  (req, res) => {
-//   db.user.findOne({
-//     where: { id: req.params.userId },
-//     include: [db.user, db.insight]
-//   })
-//   .then(function(insight) {
-//     if (!insight) throw Error()
-//     console.log(insight.user)
-//     res.render('insight/show', { insight: insight })
-//   })
-//   .catch(function(error) {
-//     console.log(error)
-//     res.status.apply(render('main/404'))
-//     })
-//   })
+    res.render('insights/show.ejs', { myInsight: insight })
+  } catch(err) {
+    console.log(err)
+  }
+  })
 
 
 // DELETE - /coinsId - delete coins
 router.delete('/:insightId', (req, res) => {
   console.log('try to delete this')
-  // db.insight.destroy({
-  //   where: { id: req.params.id }
-  // })
-  //   .then( () => {
-  //     res.redirect('/insights')
-  //   })
+  db.insight.destroy({
+    where: { id: req.params.insightId }
+  })
+    .then( () => {
+      res.redirect('/insights')
+    })
   })
 
 

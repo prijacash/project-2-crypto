@@ -108,4 +108,19 @@ router.get('/profile', (req, res) => {
     }
 })
 
+// GET /users/:id - display a specific author and their posts
+router.get('/:id', (req, res) => {
+    db.user.findOne({
+      include: [db.insight],
+      where: {id: req.params.id}
+    }).then((user) => {
+      res.render('users/show', { user: user })
+    }).catch((error) => {
+      console.log(error)
+      res.status(400).render('main/404')
+    })
+  })
+
+
+
 module.exports = router
