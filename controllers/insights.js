@@ -18,6 +18,18 @@ router.get('/', async (req, res) => {
   }
 })
 
+// GET /insights/new - display form for creating new articles READ - done
+router.get('/new', function(req, res) {
+    db.user.findAll()
+    .then(function(users) {
+      res.render('insights/new', { users: users })
+    })
+    .catch(function(error) {
+      res.status(400).render('main/404')
+    })
+  })
+
+
 // POST /insights - CREATE a new post - done
 router.post('/', (req, res) => {
     db.insight.create({
@@ -26,13 +38,12 @@ router.post('/', (req, res) => {
       userId: req.body.userId,
     })
     .then(function(post) {
-      res.redirect('/')
+      res.redirect('/insights')
     })
     .catch(function(error) {
       res.status(400).render('main/404')
     })
   })
-
 
 
 // GET /insights/:insight - read specific coin
@@ -64,16 +75,6 @@ router.delete('/:insightId', (req, res) => {
   //   })
   })
 
-// GET /insights/new - display form for creating new articles READ
-// router.get('/new', function(req, res) {
-//     db.user.findAll()
-//     .then(function(users) {
-//       res.render('insights/new', { users: users })
-//     })
-//     .catch(function(error) {
-//       res.status(400).render('main/404')
-//     })
-//   })
 
 
 

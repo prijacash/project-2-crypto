@@ -38,7 +38,7 @@ Tech Needed
 | GET | ~/~ | READ | read insights data and descriptions |
 | GET | /users/:userId/insights | READ | all an insights from user |
 | GET | /users/:userId/insights/new | READ | form to create new insight |
-| POST | /users/:userId/insights | CREATE | create new insights |
+| POST | ~/insights/new~ | CREATE | create new insights |
 | PUT | /users/:userId/insights | UPDATE | update insights |
 | DELETE | /users/:userId/insights/:insightId | DESTROY | delete insights |
 | GET | /insights/:insightId | READ | read specific insights |
@@ -70,17 +70,17 @@ use docs for specific coin to grab coin info
 
 **ORM**
 - [ ] - ORM Database table - relationship with tables
-- [ ] - users 1:M insights
+- [X] - users 1:M insights
 - [ ] - users M:M coins (join tables)
 
 **CONTROLLERS**
-- [ ] - App use controllers on Index
+- [X] - App use controllers on Index
 - [ ] - Insights, Users, Coins - JS
 
 
 **CRUD**
 - [ ] - 1 complete set CRUD (insights)
-- [ ] - Create - Insights
+- [X] - Create - Insights
 - [X] - Read - Insights
 - [ ] - Update - Insights
 - [ ] - Destroy - Insights
