@@ -4,6 +4,7 @@ const db = require('../models')
 const axios = require('axios')
 
 
+
 // VARIABLES FROM COINGECKO URL - need to be specific
 const trendingUrl = `https://api.coingecko.com/api/v3/search/trending`
 const bitcoinUrl = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
@@ -92,26 +93,17 @@ router.post('/', function(req, res) {
 
 
 
-// EDIT ROUTE
-router.get('/edit/:id', (req, res) => {
-  coin.findById(req.params.id, function(err, coin) {
-    res.render('coins/edit.ejs', {coin: coin});
+// GET - edit ROUTE to read form
+router.get('/edit/:id', (req,res) => {
+    const coinData = db.coin.findAll()
+    console.log(coinData)
+    .then(function(coins) {
+      res.render('coins/edit', { coin: coins })
+    })
+    .catch(function(error) {
+      res.status(400).render('main/404')
+    })
   })
-})
-
-// UPDATE
-router.put('/edit/:id', (req, res) => {
-  coin.findByIdAndUpdate(req.params.id, req.body)
-    .then(coin => {
-      res.redirect(`/coin/${review._id}`)
-    })
-    .catch(err => {
-      console.log(err.message)
-    })
-})
-
-
-
 
 // PUT our new edited data to our data base
 
