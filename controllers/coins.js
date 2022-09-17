@@ -89,6 +89,53 @@ router.post('/', function(req, res) {
   })
 })
 
+// GET our UPDATE form
+// router.get('/edit/:id', async (req,res) => {
+//   try {
+//     const coinData = await db.coin.findAll()
+//     const coin = coinData[req.params.id]
+//       console.log(coin)
+//     res.render('coins/edit.ejs', { myCoin: coin })
+
+//   } catch(err) {
+//     console.log(err)
+//   } 
+// })
+
+// GET our UPDATE form
+router.get('/edit/:id', (req,res) => {
+    const coins = db.coin.findAll()
+    res.render('coins/edit.ejs', {coins: coins})
+  })
+  .catch(function(error) {
+    res.status(400).render('main/404')
+  })
+
+
+// PUT our new edited data into our database
+router.put('/edit/:id', async (req,res) => {
+  try {
+    const coins = await db.coin.findAll({
+      
+    })
+    
+      coins.name = req.body.name
+      coins.description = req.body.description
+
+    res.render('/coins', { coins : coins})
+  } catch(err) {
+    console.log(err)
+  }
+  
+
+
+
+
+
+
+
+
+
 // GET coins/:coinsId - read specific coin
 router.get('/:id', async (req, res) => {
   try {

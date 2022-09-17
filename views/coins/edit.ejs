@@ -1,7 +1,11 @@
-<form method="POST" action="/coins/<%= myCoin.id %>/?_method=PUT">
+<h2>EDIT FORM </h2>
+
+<form method="POST", action="/coins/<%= coins.id %>/?_method=PUT">
     <label>Name</label>
-    <input type="text" name="name" value="<%= myCoin.name %>">
+    <input type="text" name="name" value="<%= coins.name %>">
+
     <label>Description</label>
-    <input type="text" name="type" value="<%= myCoin.description %>">
+    <input type="text" name="description" value="<%= coins.description %>">
+
     <input type="submit">
 </form>

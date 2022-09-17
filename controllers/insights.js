@@ -73,6 +73,7 @@ router.delete('/:insightId', (req, res) => {
 
 
 
+
 // // GET /insights/:id - display a specific post and its user READ
 // router.get('/:insightId', function(req, res) {
 //     db.insight.findOne({
