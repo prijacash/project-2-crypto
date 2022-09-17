@@ -89,47 +89,34 @@ router.post('/', function(req, res) {
   })
 })
 
-// GET our UPDATE form
-// router.get('/edit/:id', async (req,res) => {
-//   try {
-//     const coinData = await db.coin.findAll()
-//     const coin = coinData[req.params.id]
-//       console.log(coin)
-//     res.render('coins/edit.ejs', { myCoin: coin })
 
-//   } catch(err) {
-//     console.log(err)
-//   } 
-// })
 
-// GET our UPDATE form
-router.get('/edit/:id', (req,res) => {
-    const coins = db.coin.findAll()
-    res.render('coins/edit.ejs', {coins: coins})
+
+// EDIT ROUTE
+router.get('/edit/:id', (req, res) => {
+  coin.findById(req.params.id, function(err, coin) {
+    res.render('coins/edit.ejs', {coin: coin});
   })
-  .catch(function(error) {
-    res.status(400).render('main/404')
-  })
+})
 
-
-// PUT our new edited data into our database
-router.put('/edit/:id', async (req,res) => {
-  try {
-    const coins = await db.coin.findAll({
-      
+// UPDATE
+router.put('/edit/:id', (req, res) => {
+  coin.findByIdAndUpdate(req.params.id, req.body)
+    .then(coin => {
+      res.redirect(`/coin/${review._id}`)
     })
-    
-      coins.name = req.body.name
-      coins.description = req.body.description
+    .catch(err => {
+      console.log(err.message)
+    })
+})
 
-    res.render('/coins', { coins : coins})
-  } catch(err) {
-    console.log(err)
-  }
+
+
+
+// PUT our new edited data to our data base
+
+
   
-
-
-
 
 
 
@@ -165,14 +152,37 @@ router.delete('/:coinId', (req, res) => {
 
 module.exports = router
 
-// GET our update form
-// router.put('/edit/:id', (req,res) => {
-//   coin.update(
-//     {title: req.body.title},
-//     {where: req.params.bookId}
-//   )
-//   .then(function(rowsUpdated) {
-//     res.json(rowsUpdated)
-//   })
-//   .catch(next)
-// })
+
+
+
+
+
+
+// GET our UPDATE form
+// router.get('/edit/:id', async (req,res) => {
+//   try {
+//     const coins = db.coin.findOne({
+//       where : {
+//        coins = coins[req.params.id]
+//       }
+//     })
+//       res.render('coins/edit.ejs', {coins: coins})
+//   } catch(err) {
+//     console.log(err)
+//   }
+  
+// PUT our new edited data into our database
+// router.put('/edit/:id', async (req,res) => {
+//   try {
+//     const coins = await db.coin.findOne({
+//       where : {
+//         coins = coins[req.params.id]
+//       }
+//     })
+//       coins.name = req.body.name
+//       coins.description = req.body.description
+
+//     res.render('/coins', { coins : coins})
+//   } catch(err) {
+//     console.log(err)
+//   }
