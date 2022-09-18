@@ -2,10 +2,12 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 const axios = require('axios')
+const methodOveride = require("method-override")
 
+router.use(express.urlencoded({extended:false}))
+router.use(methodOveride("_method"))
 
 // VARIABLES FROM COINGECKO URL - need to be specific
-const trendingUrl = `https://api.coingecko.com/api/v3/search/trending`
 const bitcoinUrl = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
 const ethereumUrl = `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
 const tetherUrl = `https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
@@ -82,50 +84,52 @@ router.post('/create', function(req, res) {
     description: req.body.description
   })
   .then(function(post) {
-    res.redirect('/coins')
+    res.redirect('/')
   })
   .catch(function(error) {
     res.status(400).render('main/404')
   })
 })
 
-
 /// FAVE SECTION
 // GET /faves -- READ all faves and display them to the user
-router.get('user/faves', async (req, res) => {
-  try {
-    // find all of the user's favs in the db
-    const allFaves = await db.fave.findAll()
-    // render a template with the user's faves
-    res.render('faves.ejs', { allFaves })
-  } catch(err) {
-    console.log(err)
-    res.send('server error')
-  }
-})
+// router.get('user/faves', async (req, res) => {
+//   try {
+//     // find all of the user's favs in the db
+//     const allFaves = await db.fave.findAll()
+//     // render a template with the user's faves
+//     res.render('faves.ejs', { allFaves })
+//   } catch(err) {
+//     console.log(err)
+//     res.send('server error')
+//   }
+// })
 
-// POST /faves -- CREATE new fave and redirect to /faves to display user faves
-router.post('user/faves', async (req, res) => {
-try {
-  console.log(req.body)
-  // add the new favorite to the db
-  await db.fave.create(req.body)
-  // redirect to the user's profile with their faves
-  res.redirect('/faves')
-} catch(err) {
-  console.log(err)
-  res.send('server error')
-}
-})
-
+// // POST /faves -- CREATE new fave and redirect to /faves to display user faves
+// router.post('user/faves', async (req, res) => {
+// try {
+//   console.log(req.body)
+//   // add the new favorite to the db
+//   await db.fave.create(req.body)
+//   // redirect to the user's profile with their faves
+//   res.redirect('/faves')
+// } catch(err) {
+//   console.log(err)
+//   res.send('server error')
+// }
+// })
 
 // GET - EDIT ROUTE to read form
 router.get('/edit/:id', async (req, res) => {
   try {
-    const coinData = await db.coin.findAll()
-      console.log(coinData)
-    const coin = coinData[req.params.id]
-    res.render('coins/edit.ejs', { myCoin: coin })
+    const coinData = await db.coin.findOne({
+      where : {
+        id: req.params.id
+      }
+    })
+    //   console.log(coinData)
+    // const coin = coinData[req.params.id]
+    res.render('coins/edit.ejs', { myCoin: coinData })
   } catch(err) {
     console.log(err)
   }
@@ -133,15 +137,21 @@ router.get('/edit/:id', async (req, res) => {
 
 // PUT - to update the form
 router.put('/edit/:id', async (req, res) => {
-  try {
-    const coinData = await db.coin.findAll()
-      coinData[req.params.id].name = req.body.name
-      coinData[req.params.id].description = req.body.description
-    res.redirect('/')
-  } catch(err) {
-    console.log(err)
-  }
+try {
+  const coinUpdate = await db.coin.update({
+    name: req.body.name,
+    description: req.body.description
+  }, {
+    where: {
+      id: req.params.id
+    }
+  })
+  res.redirect('/', { coinUpdate })
+} catch(err) {
+  console.log(err)
+}
 })
+
 
 // GET coins/:coinsId - read specific coin
 router.get('/:id', async (req, res) => {
@@ -167,43 +177,4 @@ router.delete('/:coinId', (req, res) => {
   })
 })
 
-
-
-
-
 module.exports = router
-
-
-
-
-
-
-
-// GET our UPDATE form
-// router.get('/edit/:id', async (req,res) => {
-//   try {
-//     const coins = db.coin.findOne({
-//       where : {
-//        coins = coins[req.params.id]
-//       }
-//     })
-//       res.render('coins/edit.ejs', {coins: coins})
-//   } catch(err) {
-//     console.log(err)
-//   }
-  
-// PUT our new edited data into our database
-// router.put('/edit/:id', async (req,res) => {
-//   try {
-//     const coins = await db.coin.findOne({
-//       where : {
-//         coins = coins[req.params.id]
-//       }
-//     })
-//       coins.name = req.body.name
-//       coins.description = req.body.description
-
-//     res.render('/coins', { coins : coins})
-//   } catch(err) {
-//     console.log(err)
-//   }
