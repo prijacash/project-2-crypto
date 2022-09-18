@@ -8,7 +8,7 @@
 </form>
 
 
-<form method="POST" action="/faves">
+<form method="POST" action="/coins/<%= myCoin.id %>/faves">
 
     <input hidden value="<%= myCoin.id %>" name="coinId" />
     <button type="submit">Fave this Coin</button>

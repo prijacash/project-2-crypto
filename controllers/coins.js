@@ -19,7 +19,6 @@ const dogeUrl = `https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_c
 const dotUrl = `https://api.coingecko.com/api/v3/simple/price?ids=polkadot&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
 const linkUrl = `https://api.coingecko.com/api/v3/simple/price?ids=chainlink&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
 
-
 // GET / - show all coins from API
 router.get('/', async (req, res) => {
     try {
@@ -93,31 +92,34 @@ router.post('/create', function(req, res) {
 
 /// FAVE SECTION
 // GET /faves -- READ all faves and display them to the user
-// router.get('user/faves', async (req, res) => {
-//   try {
-//     // find all of the user's favs in the db
-//     const allFaves = await db.fave.findAll()
-//     // render a template with the user's faves
-//     res.render('faves.ejs', { allFaves })
-//   } catch(err) {
-//     console.log(err)
-//     res.send('server error')
-//   }
-// })
+router.get('coins/faves', async (req, res) => {
+  try {
+    // find all of the user's favs in the db
+    const allFaves = await db.fave.findAll()
+    // render a template with the user's faves
+    res.render('show.ejs', { allFaves })
+  } catch(err) {
+    console.log(err)
+    res.send('server error')
+  }
+})
 
-// // POST /faves -- CREATE new fave and redirect to /faves to display user faves
-// router.post('user/faves', async (req, res) => {
-// try {
-//   console.log(req.body)
-//   // add the new favorite to the db
-//   await db.fave.create(req.body)
-//   // redirect to the user's profile with their faves
-//   res.redirect('/faves')
-// } catch(err) {
-//   console.log(err)
-//   res.send('server error')
-// }
-// })
+// POST /faves -- CREATE new fave and redirect to /faves to display user faves
+router.post('/:id/faves', async (req, res) => {
+try {
+  console.log(req.body)
+  // add the new favorite to the db
+  await db.fave.create({
+    userId: res.locals.user.id,
+    coinId: req.params.id
+  })
+  // redirect to the user's profile with their faves
+  res.redirect('/coins')
+} catch(err) {
+  console.log(err)
+  res.send('server error')
+}
+})
 
 // GET - EDIT ROUTE to read form
 router.get('/edit/:id', async (req, res) => {
@@ -127,8 +129,6 @@ router.get('/edit/:id', async (req, res) => {
         id: req.params.id
       }
     })
-    //   console.log(coinData)
-    // const coin = coinData[req.params.id]
     res.render('coins/edit.ejs', { myCoin: coinData })
   } catch(err) {
     console.log(err)
@@ -146,12 +146,11 @@ try {
       id: req.params.id
     }
   })
-  res.redirect('/', { coinUpdate })
+  res.redirect('/coins')
 } catch(err) {
   console.log(err)
 }
 })
-
 
 // GET coins/:coinsId - read specific coin
 router.get('/:id', async (req, res) => {
