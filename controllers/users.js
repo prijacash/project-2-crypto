@@ -121,6 +121,20 @@ router.get('/:id', (req, res) => {
     })
   })
 
+// FAVES ROUTES
+// GET /faves -- READ all faves and display them to the user
+router.get('/faves', async (req, res) => {
+    try {
+      // find all of the user's favs in the db
+      const allFaves = await db.fave.findAll()
+      res.render('faves.ejs', { allFaves })
+      // render a template with the users faves
+    } catch(err) {
+      console.log(err)
+      res.send('server error')
+    }
+  })
+
 
 
 module.exports = router

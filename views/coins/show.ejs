@@ -6,3 +6,10 @@
 <form action="/coins/<%= myCoin.id %>/?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
+
+
+<form method="POST" action="/faves">
+
+    <input hidden value="<%= myCoin.id %>" name="coinId" />
+    <button type="submit">Fave this Movie</button>
+</form>
