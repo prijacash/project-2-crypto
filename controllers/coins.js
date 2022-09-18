@@ -4,7 +4,6 @@ const db = require('../models')
 const axios = require('axios')
 
 
-
 // VARIABLES FROM COINGECKO URL - need to be specific
 const trendingUrl = `https://api.coingecko.com/api/v3/search/trending`
 const bitcoinUrl = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`
@@ -68,8 +67,8 @@ router.get('/', async (req, res) => {
 // GET /coins/new - display FORM for creating new coins - done
 router.get('/new', function(req, res) {
   db.coin.findAll()
-  .then(function(users) {
-    res.render('coins/new', { user: users })
+  .then(function(coins) {
+    res.render('coins/new', { coin: coins })
   })
   .catch(function(error) {
     res.status(400).render('main/404')
@@ -77,7 +76,7 @@ router.get('/new', function(req, res) {
 })
 
 // POST /coins - create a new coins - done
-router.post('/', function(req, res) {
+router.post('/create', function(req, res) {
   db.coin.create({
     name: req.body.name,
     description: req.body.description
@@ -91,28 +90,7 @@ router.post('/', function(req, res) {
 })
 
 
-
-
-// GET - edit ROUTE to read form
-router.get('/edit/:id', (req,res) => {
-    const coinData = db.coin.findAll()
-    console.log(coinData)
-    .then(function(coins) {
-      res.render('coins/edit', { coin: coins })
-    })
-    .catch(function(error) {
-      res.status(400).render('main/404')
-    })
-  })
-
-// PUT our new edited data to our data base
-
-
-  
-
-
-
-// FAVES routes
+/// FAVE SECTION
 // GET /faves -- READ all faves and display them to the user
 router.get('user/faves', async (req, res) => {
   try {
@@ -141,8 +119,29 @@ try {
 })
 
 
+// GET - EDIT ROUTE to read form
+router.get('/edit/:id', async (req, res) => {
+  try {
+    const coinData = await db.coin.findAll()
+      console.log(coinData)
+    const coin = coinData[req.params.id]
+    res.render('coins/edit.ejs', { myCoin: coin })
+  } catch(err) {
+    console.log(err)
+  }
+})
 
-
+// PUT - to update the form
+router.put('/edit/:id', async (req, res) => {
+  try {
+    const coinData = await db.coin.findAll()
+      coinData[req.params.id].name = req.body.name
+      coinData[req.params.id].description = req.body.description
+    res.redirect('/')
+  } catch(err) {
+    console.log(err)
+  }
+})
 
 // GET coins/:coinsId - read specific coin
 router.get('/:id', async (req, res) => {
@@ -150,6 +149,7 @@ router.get('/:id', async (req, res) => {
     const coinData = await db.coin.findAll()
       console.log(coinData)
     const coin = coinData[req.params.id]
+
     res.render('coins/show.ejs', { myCoin: coin })
   } catch(err) {
     console.log(err)
