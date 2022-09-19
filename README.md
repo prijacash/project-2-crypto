@@ -65,22 +65,22 @@ use docs for specific coin to grab coin info
 - [X] - Coin Index Page
 - [X] - Restful Routes
 - [X] - Readme
-
+- [X] - MVP complete
 **ORM**
-- [ ] - ORM Database table - relationship with tables
+- [X] - ORM Database table - relationship with tables
 - [X] - users 1:M insights
-- [ ] - users M:M coins (join tables)
+- [X] - users M:M coins (join tables)
 
 **CONTROLLERS**
 - [X] - App use controllers on Index
-- [ ] - Insights, Users, Coins - JS
+- [X] - Insights, Users, Coins - JS
 
 
 **CRUD**
-- [ ] - 1 complete set CRUD (insights)
+- [X] - 1 complete set CRUD (insights)
 - [X] - Create - Insights
 - [X] - Read - Insights
-- [ ] - Update - Insights
+- [X] - Update - Insights
 - [X] - Destroy - Insights
 - [X] - CRD - coins
 - [X] - stub out Insights
@@ -103,4 +103,3 @@ use docs for specific coin to grab coin info
 **Roadblocks**
 - [X] - API setup
 - [X] - API Key
-
