@@ -77,7 +77,7 @@ router.get('/new', function(req, res) {
 })
 
 // POST /coins - create a new coins - done
-router.post('/create', function(req, res) {
+router.post('/createNew', function(req, res) {
   db.coin.create({
     name: req.body.name,
     description: req.body.description
@@ -92,12 +92,12 @@ router.post('/create', function(req, res) {
 
 /// FAVE SECTION
 // GET /faves -- READ all faves and display them to the user
-router.get('coins/faves', async (req, res) => {
+router.get('./users/profile', async (req, res) => {
   try {
     // find all of the user's favs in the db
     const allFaves = await db.fave.findAll()
     // render a template with the user's faves
-    res.render('show.ejs', { allFaves })
+    res.render('/users/profile.ejs', { allFave: allFaves })
   } catch(err) {
     console.log(err)
     res.send('server error')

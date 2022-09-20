@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // models.fave.hasMany(models.coin)
+      // models.fave.hasMany(models.user)
     }
   }
   fave.init({

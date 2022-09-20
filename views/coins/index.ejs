@@ -43,14 +43,14 @@
     </li>
 </ul>
 
-
+<a href="/coins/new" class="btn btn-primary">Add Coin</a>
 
 <ul>
     <!-- <li>Display Coins</li> -->
     <li>
         <li>
             <% coin.forEach(coin => { %>
-                <p><%= coin.name %></p>
+                <p><a href="/coins/<%= coin.id %>"><%= coin.name %></a></p>
                 <%= coin.description %>
 
                 <p></p>
