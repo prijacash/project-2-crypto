@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // // define association here
-      // models.insight.belongsTo(models.user)
+      models.insight.belongsTo(models.user)
     }
   }
   insight.init({

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // models.coin.belongsTo(models.fave)
+      models.coin.belongsToMany(models.user, {through: "fave"})
     }
   }
   coin.init({
