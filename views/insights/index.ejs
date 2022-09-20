@@ -1,11 +1,13 @@
+<script src="https://widgets.coingecko.com/coingecko-coin-price-chart-widget.js"></script>
+<coingecko-coin-price-chart-widget  coin-id="bitcoin" currency="usd" height="300" locale="en"></coingecko-coin-price-chart-widget>
+
 <a href="/insights/new" class="btn btn-primary">Create New Insight</a>
 
 <ul>
-  <li>
         <!-- <li>Display insights</li> -->
-    <li>
+    <ol>
       <% insight.forEach((insight) => { %>
-          <p><%= insight.title %></p>
+          <p><a href="/insights/<%= insight.id %>"><%= insight.title %></a></p>
           Description
           <%= insight.content %>
           

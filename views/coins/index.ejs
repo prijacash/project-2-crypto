@@ -1,47 +1,94 @@
+<script src="https://widgets.coingecko.com/coingecko-coin-heatmap-widget.js"></script>
+<coingecko-coin-heatmap-widget  height="400" locale="en"></coingecko-coin-heatmap-widget>
+
 <h2>Index of all COINS:</h2>
 
 
-<ul>
-    <li>
-        Bitcoin | Price - <%= bitcoins.bitcoin.usd %> | Market Cap - <%= bitcoins.bitcoin.usd_market_cap %> | Volume 24 Hrs - <%= bitcoins.bitcoin.usd_24h_vol %>
-    </li>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Coin</th>
+        <th scope="col">Price</th>
+        <th scope="col">Market Cap</th>
+        <th scope="col">Volume 24hrs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Bitcoin</td>
+        <td><%= bitcoins.bitcoin.usd %></td>
+        <td><%= bitcoins.bitcoin.usd_market_cap %></td>
+        <td><%= bitcoins.bitcoin.usd_24h_vol %> </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Ethereum</td>
+        <td><%= ethereums.ethereum.usd %></td>
+        <td><%= ethereums.ethereum.usd_market_cap %></td>
+        <td><%= ethereums.ethereum.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Tether</td>
+        <td><%= tethers.tether.usd %></td>
+        <td><%= tethers.tether.usd_market_cap %></td>
+        <td><%= tethers.tether.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>BNB</td>
+        <td><%= bnbs.binancecoin.usd %></td>
+        <td><%= bnbs.binancecoin.usd_market_cap %></td>
+        <td><%= bnbs.binancecoin.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>XRP</td>
+        <td><%= xrps.ripple.usd %> </td>
+        <td><%= xrps.ripple.usd_market_cap %></td>
+        <td><%= xrps.ripple.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>Cardano</td>
+        <td><%= adas.cardano.usd %></td>
+        <td><%= adas.cardano.usd_market_cap %></td>
+        <td><%= adas.cardano.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>Solana</td>
+        <td><%= sols.solana.usd %></td>
+        <td><%= sols.solana.usd_market_cap %> </td>
+        <td><%= sols.solana.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>Dogecoin</td>
+        <td><%= doges.dogecoin.usd %></td>
+        <td><%= doges.dogecoin.usd_market_cap %></td>
+        <td><%= doges.dogecoin.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>Polkadot</td>
+        <td><%= dots.polkadot.usd %></td>
+        <td><%= dots.polkadot.usd_market_cap %></td>
+        <td><%= dots.polkadot.usd_24h_vol %></td>
+      </tr>
+      <tr>
+        <th scope="row">10</th>
+        <td>Chainlink</td>
+        <td><%= links.chainlink.usd %></td>
+        <td><%= links.chainlink.usd_market_cap %></td>
+        <td><%= links.chainlink.usd_24h_vol %></td>
+      </tr>
+    </tbody>
+  </table>
 
-    <li>
-        Ethereum | Price - <%= ethereums.ethereum.usd %> | Market Cap - <%= ethereums.ethereum.usd_market_cap %> | Volume 24 Hrs - <%= ethereums.ethereum.usd_24h_vol %>
-    </li>
 
-    <li>
-        Tether | Price - <%= tethers.tether.usd %> | Market Cap - <%= tethers.tether.usd_market_cap %> | Volume 24 Hrs - <%= tethers.tether.usd_24h_vol %>
-    </li>
-
-    <li>
-        BNB | Price - <%= bnbs.binancecoin.usd %> | Market Cap - <%= bnbs.binancecoin.usd_market_cap %> | Volume 24 Hrs - <%= bnbs.binancecoin.usd_24h_vol %>
-    </li>
-
-    <li>
-        XRP | Price - <%= xrps.ripple.usd %> | Market Cap - <%= xrps.ripple.usd_market_cap %> | Volume 24 Hrs - <%= xrps.ripple.usd_24h_vol %>
-    </li>
-
-    <li>
-        Cardano | Price - <%= adas.cardano.usd %> | Market Cap - <%= adas.cardano.usd_market_cap %> | Volume 24 Hrs - <%= adas.cardano.usd_24h_vol %>
-    </li>
-
-    <li>
-        Solana | Price - <%= sols.solana.usd %> | Market Cap - <%= sols.solana.usd_market_cap %> | Volume 24 Hrs - <%= sols.solana.usd_24h_vol %>
-    </li>
-
-    <li>
-        Dogecoin | Price - <%= doges.dogecoin.usd %> | Market Cap - <%= doges.dogecoin.usd_market_cap %> | Volume 24 Hrs - <%= doges.dogecoin.usd_24h_vol %>
-    </li>
-
-    <li>
-        Polkadot | Price - <%= dots.polkadot.usd %> | Market Cap - <%= dots.polkadot.usd_market_cap %> | Volume 24 Hrs - <%= dots.polkadot.usd_24h_vol %>
-    </li>
-
-    <li>
-        Chainlink | Price - <%= links.chainlink.usd %> | Market Cap - <%= links.chainlink.usd_market_cap %> | Volume 24 Hrs - <%= links.chainlink.usd_24h_vol %>
-    </li>
-</ul>
 
 <a href="/coins/new" class="btn btn-primary">Add Coin</a>
 
