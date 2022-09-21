@@ -102,18 +102,19 @@ router.get('/profile', (req, res) => {
         res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
     // otherwise, show them their profile
     } else {
-        // db.fave.findAll({
-        //     include: [db.coins],  
-        //     where: {id: req.params.id}
-        // }).then((userFave) => {
-        //     console.log
-            res.render('users/profile.ejs', {
-                user: res.locals.user,
-                // userFave: userFave
-        // }).catch((error) => {
-        //     console.log(error)
-        //         res.status(400).render('main/404')
-        // })
+        db.insight.findAll({
+                include: [db.user],
+                where: {id: res.locals.user.id}
+            }).then((insight) => {
+                console.log('THIS IS SINIGHT', insight)
+                
+                res.render('users/profile.ejs', {
+                    user: res.locals.user,
+                    insight: insight,
+                })
+            }).catch((error) => {
+                console.log(error)
+                    res.status(400).render('main/404')
         })
     }
 })

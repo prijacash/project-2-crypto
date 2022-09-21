@@ -19,7 +19,7 @@ app.use(ejsLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(methodOverride("_method"))
-
+app.use('/public', express.static('public'));
 
 // our custom auth middleware
 app.use(async (req, res, next) => {

@@ -10,9 +10,9 @@ Tech Needed
 
 # USER STORIES
 - As a user, I want to add make market insights on current crypto market.
-- As a user, I want to update or delete previous insights.
+- As a user, I want to delete previous insights.
 - As a user, I want explore other people's market insights.
-- As a user, I want to favorite other insights.
+- As a user, I want explore coins.
 - As a user, I want view all the coins and their prices.
 
 # WIREFRAMES 
@@ -37,7 +37,6 @@ Tech Needed
 | ------ | ----------- | ------ | ------ |
 | GET | ~/~ | READ | read insights data and descriptions |
 | POST | ~/insights/new~ | CREATE | create new insights |
-| PUT | /users/:userId/insights | UPDATE | update insights |
 | DELETE | ~/insights/:insightId~ | DESTROY | delete insights |
 | GET | ~/insights/:insightId~ | READ | read specific insights |
 
@@ -46,6 +45,7 @@ Tech Needed
 | ------ | ----------- | ------ | ------ |
 | GET | ~/~ | READ | read prices |
 | GET | ~/coins/:coinsId~ | READ | read specific coin detail |
+| PUT | ~/coin/:userId/edit~ | UPDATE | update insights |
 | POST | ~/coins/new~ | CREATE | create new coin details |
 | DELETE | ~/coins/:coinsId/~ | DESTROY | delete coins |
 
@@ -66,6 +66,7 @@ use docs for specific coin to grab coin info
 - [X] - Restful Routes
 - [X] - Readme
 - [X] - MVP complete
+
 **ORM**
 - [X] - ORM Database table - relationship with tables
 - [X] - users 1:M insights
@@ -90,11 +91,11 @@ use docs for specific coin to grab coin info
 
 **FINAL**
 - [ ] - Clean HTML, CSS, Back-End Code
-- [ ] - Deploy Online
+- [X] - Deploy Online
 
 **Stretch Goals**
 - [ ] - Include Exchange Info
-- [ ] - Add charts
+- [X] - Add charts
 - [ ] - Add a nice color layout
 - [ ] - Add twitter widgets of info
 - [ ] - Add comments

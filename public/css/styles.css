@@ -1,0 +1,16 @@
+body {
+    background-color: rgba(237, 233, 228, 0.863);
+    text-indent: 20px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  }
+
+  .text-center {
+    text-align: center;
+    border: 3px solid green;
+  }

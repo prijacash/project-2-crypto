@@ -5,5 +5,16 @@
 
 
 
-<p>Show Insights Here</p>
+<p>My Insights</p>
 
+<% insight.forEach((insight) => { %>
+    <p><%= insight.title %> </p>
+    <p><%= insight.content %></p>
+<% }) %>
+
+<!-- text back connect 2 models with associations with include 
+Loop through FAV ARRAY
+using COIN ID req to database
+which will give you ind coin
+then push coin to empty array
+then pass that array to render-->
