@@ -1,14 +1,12 @@
-# Project 2 Crypto
+# Project 2 Crypto Insights
+List of major Crypto Currencies and have users comment on their market insights on different topics.
 
-Crypto Insights
-
-List of major Crypto Currencies and their protocols
-
-Live Llink
+Live Link
 [Crypto Insights](https://project2-crypto-insight-prijacash.koyeb.app/) 
 
 
 Tech Used
+- HTML, CSS - Styling and Framework
 - JavaScript - Node and Express to create the website foundation
 - PostgresQL - Database used to store data
 - Sequelize - Allows js to interact with database
