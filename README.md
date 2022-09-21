@@ -4,9 +4,16 @@ Crypto Insights
 
 List of major Crypto Currencies and their protocols
 
+Live Llink
+[Crypto Insights](https://project2-crypto-insight-prijacash.koyeb.app/) 
 
-Tech Needed
-- HTML, CSS, 
+
+Tech Used
+- JavaScript - Node and Express to create the website foundation
+- PostgresQL - Database used to store data
+- Sequelize - Allows js to interact with database
+- Bootstrap - CSS framework for styling
+- Coingecko's API - search real time coin price data
 
 # USER STORIES
 - As a user, I want to add make market insights on current crypto market.
