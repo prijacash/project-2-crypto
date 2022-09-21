@@ -90,17 +90,19 @@
 
 
 
-<a href="/coins/new" class="btn btn-primary">Add Coin</a>
+<a href="/coins/new" class="btn btn-primary" class="right">Add Coin</a>
+<br></br>
 
 <ul>
     <!-- <li>Display Coins</li> -->
-    <li>
-        <li>
+    <div>
+        <div>
             <% coin.forEach(coin => { %>
                 <p><a href="/coins/<%= coin.id %>"><%= coin.name %></a></p>
                 <%= coin.description %>
 
                 <p></p>
            <% }) %>
-    </li>
+          </div>
+    </div>
 </ul>

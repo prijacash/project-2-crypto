@@ -14,3 +14,10 @@ body {
     text-align: center;
     border: 3px solid green;
   }
+
+.right
+{
+    float: right;
+    text-indent: 5px;
+    margin-top: 0px;
+}
