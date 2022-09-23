@@ -4,6 +4,19 @@ List of major Crypto Currencies and have users comment on their market insights 
 Live Link
 [Crypto Insights](https://project2-crypto-insight-prijacash.koyeb.app/) 
 
+## Installation Instruction
+* Fork and clone this repository to your local directory
+* Navigate to the directory in your terminal and run ` npm i ` to install dependencies
+* Run `touch .env `and type in the following code in the .env file:
+``` ENC_SECRET='secret' ```
+* Replace 'secret' with any string you like if necessary
+* Go to https://www.coingecko.com/en/api/documentation to generate an API calls for each coin..
+* Setup your database (this app has four existing models)
+  * Run `createdb crypto_insights` to create the database
+  * Run `sequelize db:migrate` to run migrations
+* Use `npx nodemon` (or just `nodemon` if you installed it globally) to start your application
+* Go to http://localhost:8080/ in any browser to track your crypto insights
+
 
 Tech Used
 - HTML, CSS - Styling and Framework
