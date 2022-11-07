@@ -1,8 +1,7 @@
 # Project 2 Crypto Insights
 List of major Crypto Currencies and have users comment on their market insights on different topics.
 
-Live Link
-[Crypto Insights](https://project2-crypto-insight-prijacash.koyeb.app/) 
+For the live site check: [Crypto Insights](https://project2-crypto-insight-prijacash.koyeb.app/) 
 
 ## Installation Instruction
 * Fork and clone this repository to your local directory
